@@ -28,14 +28,17 @@ This repository is **tooling for the P2 paper** — a systematic-knowledge (SoK)
 
 ```bash
 # No external dependencies required — pure Python stdlib
-python3 esp_now_sok.py
+python3 run_demo.py
 ```
 
 ## Usage
 
 ```bash
 # Run full offline demo (taxonomy + parser + replay + fidelity + exporter)
-python3 esp_now_sok.py
+python3 run_demo.py
+
+# Run unit tests
+python3 -m unittest discover -s tests -v
 ```
 
 Programmatic use:
@@ -78,6 +81,34 @@ print(SokResultsExporter().to_latex())      # paper-ready LaTeX table
   fidelity_score=85.71
 [+] Demo complete — exit 0
 ```
+
+## Live Lab Test Plan
+
+| Phase | Description | Go / No-Go Criteria | Status |
+|-------|-------------|---------------------|--------|
+| Phase 0 | Offline pipeline validation (this tool) | Demo exits 0, all tests pass, fidelity > 80 | DONE |
+| Phase 1 | ESP32 peer setup + frame capture | Two ESP32 peers exchange action frames; nRF24 observer logs match victim | PENDING |
+| Phase 2 | Replay attack reproduction (own lab only) | Replay accepted on unpatched target, rejected on patched target | PENDING |
+| Phase 3 | Full SoK matrix completion | All 5 attack categories exercised with empirical data | PENDING |
+
+## Metrics
+
+| Metric | Target | Current |
+|--------|--------|---------|
+| Taxonomy coverage | 5/5 attack categories | 5/5 |
+| Frame parser accuracy | Decode all embedded frames | 3/3 |
+| Replay simulator correctness | Patched rejects stale seq | Verified |
+| Fidelity score (offline) | > 80 | 85.71 |
+| Test pass rate | 100% | 100% |
+| Demo exit code | 0 | 0 |
+
+## Bibliography
+
+See `papers/bibliography.md` for the full structured bibliography (14 entries covering ESP-NOW protocol, CVE-2024-42483, 2.4 GHz coexistence, side-channel analysis, and legal/regulatory references).
+
+## Threat Model
+
+See `papers/threat_model.md` for the threat model table mapping attacks to layers, preconditions, and mitigation status.
 
 ## IMPORTANT: Read before use.
 
