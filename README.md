@@ -1,3 +1,8 @@
+> **⚠️ EDUCATIONAL USE ONLY — AUTHORIZED TESTING ONLY.**
+> This project exists for education, research, and **defense of systems you own
+> or hold explicit written authorization to assess**. Unauthorized use is
+> prohibited and may be illegal. Read [ETHICS.md](ETHICS.md) and
+> [SCOPE.md](SCOPE.md) before use. Use at your own risk; **AS IS**, no warranty.
 # P2 — ESP-NOW Security SoK — p2-esp-now-sok
 
 Research tooling pack for a systematic-knowledge survey (SoK) of ESP-NOW security: attack taxonomy, frame parser, replay simulator, independent-observer fidelity metric, and SoK results matrix exporter.
